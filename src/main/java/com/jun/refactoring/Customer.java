@@ -26,7 +26,6 @@ public class Customer {
 		Iterator<Rental> rentalIterator = rentals.iterator();
 		while (rentalIterator.hasNext()) {
 			Rental each = (Rental) rentalIterator.next();
-			// show figures for each rental
 			result += each.getMovie().getTitle() + ": " + String.valueOf(each.getCharge()) + "<BR>\n";
 		}
 
@@ -36,14 +35,14 @@ public class Customer {
 	}
 
 	public String htmlStatement() {
-		String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
+ 		String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
+		
 		Iterator<Rental> rentalIterator = rentals.iterator();
 		while (rentalIterator.hasNext()) {
 			Rental each = (Rental) rentalIterator.next();
-			// show figures for each rental
 			result += each.getMovie().getTitle() + ": " + String.valueOf(each.getCharge()) + "<BR>\n";
 		}
-		// add footer lines
+		
 		result += "<P>You owe <EM>" + String.valueOf(getTotalCharge()) + "</EM><P>\n";
 		result += "On this rental you earned <EM>" + String.valueOf(getTotalFrequentRenterPoints())
 				+ "</EM> frequent renter points<P>";
