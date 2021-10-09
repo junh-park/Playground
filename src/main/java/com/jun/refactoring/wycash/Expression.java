@@ -1,4 +1,4 @@
-package com.jun.wycash;
+package com.jun.refactoring.wycash;
 
 public interface Expression {
 	Money reduce(Bank bank, String to);

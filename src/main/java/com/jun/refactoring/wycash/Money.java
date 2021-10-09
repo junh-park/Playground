@@ -1,4 +1,4 @@
-package com.jun.wycash;
+package com.jun.refactoring.wycash;
 
 public class Money implements Expression {
 	protected int amount;
@@ -17,7 +17,7 @@ public class Money implements Expression {
 		return new Money(amount, "CHF");
 	}
 
-	protected String currency() {
+	public String currency() {
 		return currency;
 	}
 

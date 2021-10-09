@@ -1,4 +1,4 @@
-package com.jun.wycash;
+package com.jun.refactoring.wycash;
 
 public class Sum implements Expression {
 	public Expression augend;

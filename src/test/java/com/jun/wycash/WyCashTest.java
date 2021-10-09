@@ -8,6 +8,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.jun.refactoring.wycash.Bank;
+import com.jun.refactoring.wycash.Expression;
+import com.jun.refactoring.wycash.Money;
+import com.jun.refactoring.wycash.Sum;
+
 public class WyCashTest {
 
 	@Test
