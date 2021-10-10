@@ -4,23 +4,39 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Item {
 
 	@Id
-	@GeneratedValue(generator = "ID_GENERATOR")
+	@GeneratedValue(generator = Constants.ID_GENERATOR)
 	protected Long id;
 
-	@NotNull
-	@Size(min = 2, max = 255, message = "Name is required, maximum 255 characters.")
+	@Access(AccessType.PROPERTY)
+	@Column(name = "ITEM_NAME")
 	protected String name;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	protected AuctionType auctionType = AuctionType.HIGHEST_BID;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = !name.startsWith("AUCTION") ? "AUCTION" + name : name;
+	}
 
 	@Future
 	protected Date auctionEnd;
